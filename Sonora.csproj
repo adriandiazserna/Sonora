@@ -25,7 +25,7 @@
     <!-- Solo el lector de Media Foundation (decodificador nativo de Windows) para analizar BPM/tonalidad -->
     <PackageReference Include="NAudio.Wasapi" Version="2.2.1" />
     <!-- DPAPI: cifra las credenciales de Last.fm con la cuenta de Windows -->
-    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>
