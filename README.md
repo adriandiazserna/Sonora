@@ -8,7 +8,7 @@
 
 FLAC · DSD · ALAC · Auto DJ con detección de BPM y tonalidad · Ecualizador de 10 bandas · Last.fm
 
-[![Compilación](https://github.com/adriandiazserna/Sonora./actions/workflows/build.yml/badge.svg)](https://github.com/adriandiazserna/Sonora./actions/workflows/build.yml)
+[![Compilación](https://github.com/adriandiazserna/Sonora/actions/workflows/build.yml/badge.svg)](https://github.com/adriandiazserna/Sonora/actions/workflows/build.yml)
 ![.NET 8](https://img.shields.io/badge/.NET-8-512BD4)
 ![WebView2](https://img.shields.io/badge/UI-WebView2-0078D4)
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0a84ff)
