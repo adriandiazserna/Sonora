@@ -22,7 +22,7 @@ FLAC · DSD · ALAC · Auto DJ con detección de BPM y tonalidad · Ecualizador 
 
 ## Descargar
 
-Baja la última versión desde [**Releases**](https://github.com/adriandiazserna/Sonora/releases/latest). Descomprime `Sonora-x.y.z-win-x64.zip` y abre `Sonora.exe`; no hay que instalar nada más.
+Baja la última versión desde [**Releases**](https://github.com/adriandiazserna/Sonora/releases/latest). Descomprime `Sonora-x.y.z-win-x64.zip` (o `win-x86` si tu Windows es de 32 bits) y abre `Sonora.exe`; no hay que instalar nada más.
 
 ## Por qué lo hice
 
@@ -95,7 +95,7 @@ Sonora es de un solo usuario y no tiene backend, pero sí abre un servidor local
 
 ## Compilar y ejecutar
 
-Requisitos: Windows 10 u 11 de 64 bits (el efecto de cristal necesita Windows 11 22H2 o más reciente; en versiones anteriores se usa un fondo sólido), [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) y WebView2 Runtime (viene con Windows 11).
+Requisitos: Windows 10 u 11 de 64 o 32 bits (el efecto de cristal necesita Windows 11 22H2 o más reciente; en versiones anteriores se usa un fondo sólido), [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) y WebView2 Runtime (viene con Windows 11).
 
 ```powershell
 winget install Microsoft.DotNet.SDK.8                     # una sola vez
@@ -124,7 +124,7 @@ tools/          script que genera el ícono
 
 - Salida por WASAPI compartido, sin modo exclusivo ni bit-perfect. Para evitar el remuestreo, iguala en **Ajustes → Audio** la frecuencia del motor con la de tu DAC.
 - DFF, APE y WMA aparecen en la biblioteca, pero hay que convertirlos a FLAC (la app lo hace con ffmpeg si está instalado).
-- Por ahora solo funciona en Windows 10 y 11 de 64 bits. No hay versión para macOS ni Linux.
+- Por ahora solo funciona en Windows 10 y 11. No hay versión para macOS ni Linux.
 
 ## Licencia
 

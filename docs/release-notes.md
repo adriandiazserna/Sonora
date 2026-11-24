@@ -1,20 +1,22 @@
-Esta versión corrige cómo se ve Sonora en equipos con Windows 10.
+Esta versión agrega descargas para Windows de 32 bits.
 
 ## Qué cambió
 
-- **Windows 10 y Windows 11 21H2:** la ventana podía verse negra o casi transparente, porque el efecto de cristal solo existe desde Windows 11 22H2. Ahora Sonora revisa la versión de Windows y, si no es compatible, usa un fondo sólido.
-- En **Ajustes → Apariencia** se avisa cuando el cristal no está disponible en tu equipo.
-- Nueva variable `SONORA_NO_GLASS=1` para apagar el cristal a mano, útil en máquinas virtuales o en escritorio remoto.
+- **Nuevas versiones de 32 bits (x86)** para equipos con Windows 10 de 32 bits. Reproducen FLAC, DSD, ALAC y M4A igual que la versión de 64 bits.
+- Incluye la corrección de la 1.0.1: fondo sólido en Windows 10 y en Windows 11 21H2.
 
 ## Qué descargar
 
+¿No sabes cuál es tu Windows? Ve a **Configuración → Sistema → Acerca de → Tipo de sistema**.
+
 | Archivo | Para quién |
 |---|---|
-| **Sonora-1.0.1-win-x64.zip** | La opción recomendada. Trae todo lo necesario: solo descomprime y abre `Sonora.exe`. |
-| **Sonora-1.0.1-win-x64-ligero.zip** | Más pequeño, pero necesitas tener instalado el [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0). |
+| **Sonora-1.0.2-win-x64.zip** | Windows de 64 bits, la mayoría de las computadoras. Trae todo lo necesario: solo descomprime y abre `Sonora.exe`. |
+| **Sonora-1.0.2-win-x86.zip** | Windows de 32 bits. También trae todo lo necesario. |
+| **…-ligero.zip** | Más pequeños, pero necesitas tener instalado el [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) de la misma arquitectura. |
 | **SHA256SUMS.txt** | Huellas de los archivos, para comprobar que la descarga no se modificó. |
 
-Requisitos: Windows 10 u 11 de 64 bits.
+Requisitos: Windows 10 u 11.
 
 ## Aviso al abrirlo
 

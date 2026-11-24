@@ -14,7 +14,7 @@
     <ConcurrentGarbageCollection>false</ConcurrentGarbageCollection>
     <TieredPGO>true</TieredPGO>
     <SatelliteResourceLanguages>es;en</SatelliteResourceLanguages>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <ApplicationIcon>assets\sonora.ico</ApplicationIcon>
     <NoWarn>$(NoWarn);MSB3277</NoWarn>
   </PropertyGroup>
