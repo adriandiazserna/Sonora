@@ -1,27 +1,20 @@
-Primera versión pública de Sonora, un reproductor de música para Windows pensado para escuchar en alta calidad mientras juegas, sin que se trabe la computadora.
+Esta versión corrige cómo se ve Sonora en equipos con Windows 10.
+
+## Qué cambió
+
+- **Windows 10 y Windows 11 21H2:** la ventana podía verse negra o casi transparente, porque el efecto de cristal solo existe desde Windows 11 22H2. Ahora Sonora revisa la versión de Windows y, si no es compatible, usa un fondo sólido.
+- En **Ajustes → Apariencia** se avisa cuando el cristal no está disponible en tu equipo.
+- Nueva variable `SONORA_NO_GLASS=1` para apagar el cristal a mano, útil en máquinas virtuales o en escritorio remoto.
 
 ## Qué descargar
 
 | Archivo | Para quién |
 |---|---|
-| **Sonora-1.0.0-win-x64.zip** | La opción recomendada. Trae todo lo necesario: solo descomprime y abre `Sonora.exe`. |
-| **Sonora-1.0.0-win-x64-ligero.zip** | Más pequeño, pero necesitas tener instalado el [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0). |
+| **Sonora-1.0.1-win-x64.zip** | La opción recomendada. Trae todo lo necesario: solo descomprime y abre `Sonora.exe`. |
+| **Sonora-1.0.1-win-x64-ligero.zip** | Más pequeño, pero necesitas tener instalado el [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0). |
 | **SHA256SUMS.txt** | Huellas de los archivos, para comprobar que la descarga no se modificó. |
 
-Requisitos: Windows 10 u 11 (64 bits). WebView2 ya viene con Windows 11.
-
-## Qué incluye
-
-- Reproduce FLAC, WAV, MP3, M4A, ALAC y DSD (DSF), este último con un decodificador propio.
-- DJ automático que analiza el BPM y la tonalidad de cada canción para mezclarlas.
-- Ecualizador de 10 bandas, crossfade, reproducción sin pausas y ReplayGain.
-- Fotos y biografías de artistas, géneros automáticos y conexión con Last.fm.
-- Modo juego y modo TV con mando.
-- Gasta alrededor de 240 MB de RAM mientras suena.
-
-## Seguridad
-
-Las credenciales de Last.fm se guardan cifradas, todo lo que sale a internet va por HTTPS y el servidor interno solo responde a la propia app. Los detalles están en [SECURITY.md](https://github.com/adriandiazserna/Sonora/blob/main/SECURITY.md).
+Requisitos: Windows 10 u 11 de 64 bits.
 
 ## Aviso al abrirlo
 

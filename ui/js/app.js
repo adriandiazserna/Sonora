@@ -331,9 +331,10 @@ function applySettings() {
   if (settings.accent !== 'auto') setAccent(hexToRgb(settings.accentColor));
   else if (P.track?.coverId) accentFrom(coverUrl(P.track.coverId)).then((c) => c && setAccent(c));
   const caption = { dark: '#141416', amoled: '#000000', light: '#f2f2f7' }[settings.theme] || '#141416';
-  b.classList.toggle('fx', settings.windowFx !== 'none');
-  b.classList.toggle('fx-clear', settings.windowFx === 'glass');
-  call('app.windowFx', { fx: settings.windowFx }).catch(() => { });
+  // El núcleo decide si el cristal es posible (Windows 11 22H2+); la página usa lo que de verdad se aplicó
+  const fxClasses = (fx) => { b.classList.toggle('fx', fx !== 'none'); b.classList.toggle('fx-clear', fx === 'glass'); };
+  fxClasses(S.fxSupported === false ? 'none' : settings.windowFx);
+  call('app.windowFx', { fx: settings.windowFx }).then((fx) => fxClasses(fx || 'none')).catch(() => fxClasses('none'));
   call('app.caption', { color: caption }).catch(() => { });
   call('app.gameMode', { on: settings.gameMode }).catch(() => { });
   call('app.closeToTray', { on: settings.closeToTray }).catch(() => { });
@@ -1684,7 +1685,9 @@ VIEWS.settings = (v, tab) => {
     body.append(
       group('Tema',
         row('Estilo', null, segL([['dark', 'Oscuro'], ['light', 'Claro'], ['amoled', 'Negro']], settings.theme, (x) => { set('theme', x); applySettings(); })),
-        row('Transparencia de ventana', 'Cristal: transparente, deja ver ventanas y juegos detrás. Acrílico: más opaco. Mica: tinte de tu fondo de pantalla. Lo dibuja Windows: no usa RAM de Sonora.', segL([['glass', 'Cristal'], ['acrylic', 'Acrílico'], ['mica', 'Mica'], ['none', 'No']], settings.windowFx, (x) => { set('windowFx', x); applySettings(); })),
+        S.fxSupported === false
+          ? row('Transparencia de ventana', 'Necesita Windows 11 (versión 22H2 o más reciente). En este equipo se usa un fondo sólido.', null)
+          : row('Transparencia de ventana', 'Cristal: transparente, deja ver ventanas y juegos detrás. Acrílico: más opaco. Mica: tinte de tu fondo de pantalla. Lo dibuja Windows: no usa RAM de Sonora.', segL([['glass', 'Cristal'], ['acrylic', 'Acrílico'], ['mica', 'Mica'], ['none', 'No']], settings.windowFx, (x) => { set('windowFx', x); applySettings(); })),
         row('Color de acento', 'Automático cambia con cada portada', sws),
         row('Fondo ambiental', 'Lo que se ve difuminado detrás de la interfaz', segL([['cover', 'Portada'], ['artist', 'Artista'], ['solid', 'Sólido']], settings.bg, (x) => { set('bg', x); bgCur = null; applySettings(); }))),
       group('Forma',
@@ -1854,7 +1857,7 @@ async function init() {
   buildNav();
 
   const d = await call('init');
-  S.folders = d.folders; S.lastfm = d.lastfm; S.scanning = d.scanning;
+  S.folders = d.folders; S.lastfm = d.lastfm; S.scanning = d.scanning; S.fxSupported = d.fxSupported !== false;
   setTracks(d.tracks || []);
   updateSideFoot();
 

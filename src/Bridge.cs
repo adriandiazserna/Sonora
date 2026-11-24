@@ -71,7 +71,7 @@ public class Bridge
         {
             // ---------- Biblioteca ----------
             case "init":
-                return new { folders = F.Lib.D.Folders, tracks = F.Lib.All(), lastfm = F.Fm.Status(), scanning = F.Lib.Scanning, genres = GenreEngine.MainGenres };
+                return new { folders = F.Lib.D.Folders, tracks = F.Lib.All(), lastfm = F.Fm.Status(), scanning = F.Lib.Scanning, genres = GenreEngine.MainGenres, fxSupported = MainForm.BackdropSupported };
             case "library.get":
                 return F.Lib.All();
             case "library.scan":

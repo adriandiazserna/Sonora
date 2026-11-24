@@ -95,7 +95,7 @@ Sonora is single-user and has no backend, but it does run a local server and han
 
 ## Build and run
 
-Requirements: Windows 10/11, [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and the WebView2 Runtime (included in Windows 11).
+Requirements: 64-bit Windows 10 or 11 (the glass effect needs Windows 11 22H2 or later; older versions get a solid background), [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and the WebView2 Runtime (included in Windows 11).
 
 ```powershell
 winget install Microsoft.DotNet.SDK.8                     # one time only
@@ -126,7 +126,7 @@ tools/          icon generator script
 
 - Output goes through shared-mode WASAPI, with no exclusive or bit-perfect mode. To avoid resampling, match the engine's sample rate to your DAC in **Ajustes → Audio**.
 - DFF, APE and WMA files show up in the library but need converting to FLAC (the app does it with ffmpeg if installed).
-- Windows only for now.
+- Windows 10 and 11 (64-bit) only for now. There is no macOS or Linux version.
 
 ## License
 

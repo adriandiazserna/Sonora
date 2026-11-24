@@ -56,7 +56,15 @@ public class MainForm : Form
     }
 
     /// <summary>Efecto de ventana de Windows 11 (lo dibuja el compositor del sistema, no consume RAM de Sonora).</summary>
-    public string WindowFx = ReadSetting("windowFx") ?? "glass";
+    /// <summary>
+    /// El fondo de cristal (DWMWA_SYSTEMBACKDROP_TYPE) existe desde Windows 11 22H2 (build 22621).
+    /// En Windows 10 y en Windows 11 21H2 la ventana quedaría negra o transparente, así que se usa fondo sólido.
+    /// SONORA_NO_GLASS=1 lo apaga a mano (útil en máquinas virtuales o escritorio remoto).
+    /// </summary>
+    public static readonly bool BackdropSupported =
+        Environment.OSVersion.Version.Build >= 22621 && Environment.GetEnvironmentVariable("SONORA_NO_GLASS") != "1";
+
+    public string WindowFx = BackdropSupported ? ReadSetting("windowFx") ?? "glass" : "none";
 
     readonly WebView2 web = new() { Dock = DockStyle.Fill, DefaultBackgroundColor = Color.FromArgb(12, 12, 16) };
     public Library Lib; public LastFm Fm; public Meta Meta; public GenreEngine Genres; public DjAnalyzer Dj; public Converter Conv;
@@ -201,7 +209,7 @@ public class MainForm : Form
     /// <summary>Acrílico (escritorio difuminado), Mica (tinte del fondo de pantalla) o ninguno.</summary>
     public void SetWindowFx(string fx)
     {
-        WindowFx = fx is "glass" or "acrylic" or "mica" ? fx : "none";
+        WindowFx = BackdropSupported && fx is "glass" or "acrylic" or "mica" ? fx : "none";
         bool on = WindowFx != "none";
         try
         {
