@@ -41,7 +41,7 @@ jobs:
           Get-ChildItem *.zip, *-Setup.exe | ForEach-Object { "{0}  {1}" -f (Get-FileHash $_ -Algorithm SHA256).Hash.ToLower(), $_.Name } | Set-Content SHA256SUMS.txt
 
       - name: Publicar Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           name: Sonora ${{ github.ref_name }}
           body_path: docs/release-notes.md
