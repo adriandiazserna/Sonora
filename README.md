@@ -14,9 +14,15 @@ FLAC · DSD · ALAC · Auto DJ con detección de BPM y tonalidad · Ecualizador 
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0a84ff)
 ![Licencia MIT](https://img.shields.io/badge/licencia-MIT-green)
 
+**Español** · [English](README.en.md)
+
 <img src="docs/inicio.png" alt="Pantalla de inicio de Sonora" width="900">
 
 </div>
+
+## Descargar
+
+Baja la última versión desde [**Releases**](https://github.com/adriandiazserna/Sonora/releases/latest). Descomprime `Sonora-x.y.z-win-x64.zip` y abre `Sonora.exe`; no hay que instalar nada más.
 
 ## Por qué lo hice
 
