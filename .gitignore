@@ -14,3 +14,6 @@ SESION.md
 lastfm.json
 *.bak
 .env
+
+# Instalador generado
+installer/out/

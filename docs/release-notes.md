@@ -1,9 +1,9 @@
-Esta versión agrega descargas para Windows de 32 bits.
+Esta versión agrega un instalador para Windows.
 
 ## Qué cambió
 
-- **Nuevas versiones de 32 bits (x86)** para equipos con Windows 10 de 32 bits. Reproducen FLAC, DSD, ALAC y M4A igual que la versión de 64 bits.
-- Incluye la corrección de la 1.0.1: fondo sólido en Windows 10 y en Windows 11 21H2.
+- **Nuevo instalador (`Setup.exe`)** de 64 y 32 bits. Instala Sonora sin pedir permisos de administrador, crea accesos directos en el menú Inicio (y en el escritorio, si quieres), instala WebView2 si falta y se desinstala desde **Configuración → Aplicaciones**.
+- Las versiones portátiles (.zip) siguen disponibles.
 
 ## Qué descargar
 
@@ -11,8 +11,9 @@ Esta versión agrega descargas para Windows de 32 bits.
 
 | Archivo | Para quién |
 |---|---|
-| **Sonora-1.0.2-win-x64.zip** | Windows de 64 bits, la mayoría de las computadoras. Trae todo lo necesario: solo descomprime y abre `Sonora.exe`. |
-| **Sonora-1.0.2-win-x86.zip** | Windows de 32 bits. También trae todo lo necesario. |
+| **Sonora-1.0.3-x64-Setup.exe** | Recomendado. Instalador para Windows de 64 bits, la mayoría de las computadoras. |
+| **Sonora-1.0.3-x86-Setup.exe** | Instalador para Windows de 32 bits. |
+| **Sonora-1.0.3-win-x64.zip** / **win-x86.zip** | Versión portátil: descomprime y abre `Sonora.exe`, sin instalar nada. |
 | **…-ligero.zip** | Más pequeños, pero necesitas tener instalado el [.NET 8 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/8.0) de la misma arquitectura. |
 | **SHA256SUMS.txt** | Huellas de los archivos, para comprobar que la descarga no se modificó. |
 

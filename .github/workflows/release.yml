@@ -30,6 +30,16 @@ jobs:
           Get-ChildItem *.zip | ForEach-Object { "{0}  {1}" -f (Get-FileHash $_ -Algorithm SHA256).Hash.ToLower(), $_.Name } | Set-Content SHA256SUMS.txt
           Get-Content SHA256SUMS.txt
 
+      - name: Instalador (Setup.exe)
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) { choco install innosetup -y --no-progress }
+          $v = "${{ github.ref_name }}".TrimStart('v')
+          (Get-Content Sonora.csproj) -replace '<Version>.*</Version>', "<Version>$v</Version>" | Set-Content Sonora.csproj
+          foreach ($a in 'x64', 'x86') { ./tools/make-installer.ps1 -Arch $a }
+          Copy-Item installer/out/*-Setup.exe .
+          Get-ChildItem *.zip, *-Setup.exe | ForEach-Object { "{0}  {1}" -f (Get-FileHash $_ -Algorithm SHA256).Hash.ToLower(), $_.Name } | Set-Content SHA256SUMS.txt
+
       - name: Publicar Release
         uses: softprops/action-gh-release@v2
         with:
@@ -37,4 +47,5 @@ jobs:
           body_path: docs/release-notes.md
           files: |
             Sonora-*.zip
+            Sonora-*-Setup.exe
             SHA256SUMS.txt

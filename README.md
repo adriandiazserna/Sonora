@@ -22,7 +22,12 @@ FLAC · DSD · ALAC · Auto DJ con detección de BPM y tonalidad · Ecualizador 
 
 ## Descargar
 
-Baja la última versión desde [**Releases**](https://github.com/adriandiazserna/Sonora/releases/latest). Descomprime `Sonora-x.y.z-win-x64.zip` (o `win-x86` si tu Windows es de 32 bits) y abre `Sonora.exe`; no hay que instalar nada más.
+Baja la última versión desde [**Releases**](https://github.com/adriandiazserna/Sonora/releases/latest):
+
+- **Instalador:** `Sonora-x.y.z-x64-Setup.exe` (o `x86` si tu Windows es de 32 bits). Crea accesos directos en el menú Inicio y el escritorio, instala WebView2 si falta y se desinstala desde Configuración → Aplicaciones.
+- **Portátil:** descomprime `Sonora-x.y.z-win-x64.zip` y abre `Sonora.exe`; no hay que instalar nada más.
+
+Para generar el instalador en tu PC: `powershell -ExecutionPolicy Bypass -File tools\make-installer.ps1` (necesita Inno Setup 6: `winget install JRSoftware.InnoSetup`).
 
 ## Por qué lo hice
 
