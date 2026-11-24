@@ -1,0 +1,16 @@
+# Compilación
+bin/
+obj/
+dist/
+*.user
+.vs/
+*.tmp
+
+# Notas personales de desarrollo (contienen datos de la PC y de la cuenta)
+SESION.md
+.claude/
+
+# Nunca subir datos ni credenciales locales
+lastfm.json
+*.bak
+.env
